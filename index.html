@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Set the page title -->
-    <title>Group Project</title>
+    <title>Nike Website</title>
 
     <!-- Set the charset we're using to UTF-8 -->
     <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./style.css" />
 
     <!-- Set the Favicon  -->
-    <link rel="icon" href="./images/favicon/rocket.svg" type="image/svg+xml" />
+    <link rel="icon" href="./images/favicon/Nike Swoosh.png" type="image/svg+xml" />
   </head>
   <body>
     <!--
@@ -30,9 +30,73 @@
       YOU MAY REMOVE THE BOILERPLATE CODE BELOW
 
     -->
+    <header>
+      <div id="headerSection">
+        <h2 class="headertext">Nike Official Website</h2>
+    <img src="./images/favicon/Nike Swoosh.png" alt="Nike Swoosh" class="Logo" />
+  
+    <nav>
+      <h3 class="sitemenutitle">Site Menu</h3>
+        <ul class="sitemenu">
+         <li><a href="#headerSection">Home</a></li>
+         <li><a href="#about">About Nike</a></li>
+         <li><a href="#products">Products</a></li>
+         <li><a href="#cart">Cart</a></li>
+        </ul>
+    </nav>
+      </div>
+    </header>
+
     <main>
-      <div id="app"></div>
+      <h1>Nike Official Website</h1>
+
+      <section>
+        <div id="about">
+         <h2>About Us</h2>
+          <h3><i>FUTURE MOVEMENT</i></h3>
+          <p>Changing the game starts with those that play it. We work with athletes, communities and organisations around the world that are challenging the status quo, championing diversity, and bringing people together. All with the goal of creating a better future for everyone.</p>
+          <h3><i>Teaming Up To Change</i></h3>
+          <p>We're supporting people and communities that are making a real difference where it counts.</p>
+          <h3><i>More Than Athletes</i></h3>
+          <p>We support pro athletes who are elevating their communities: helping future generations reach their potential wherever they go in life.</p>
+        
+        </div>
+      </section>
+
+      <section>
+        <div id="Products">
+         <h2>Products</h2>
+          <ul>
+            <li><img src="images/favicon/Nike 1.webp" alt="Air Jordan 4 Craft Olive"><p>Air Jordan 4 Craft 'Olive'</p><Button>Add to Cart</Button class="addProduct" Id=""></li>
+            <li><img src="images/favicon/Nike 2.webp" alt="Air Jordan 1 Low SE Craft"><p>Air Jordan 1 Low SE Craft</p><Button>Add to Cart</Button class="addProduct" Id=""></li>
+            <li><img src="images/favicon/Nike 3.webp" alt="Air Jordan 5 x A Ma Maniére"><p>Air Jordan 5 x A Ma Maniére</p><Button>Add to Cart</Button class="addProduct" Id=""></li>
+           <li><img src="images/favicon/Nike 4.webp" alt="Air Jordan 5 Navy"><p>Air Jordan 5 'Navy'</p><Button>Add to Cart</Button class="addProduct" Id=""></li>  
+            <li><img src="images/favicon/Nike 5.webp" alt="Air Jordan 1"><p>Air Jordan 1</p><Button>Add to Cart</Button class="addProduct" Id=""></li>  
+         </ul>
+        </div>
+      </section>
+
+      <section>
+        <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul Class="shoppingCart" ID="shoppingCart">
+
+        </ul>
+      </div>
+      </section>
     </main>
+
+    <footer>
+      <nav>
+        <h3 class="sitemenutitle">Site Menu</h3>
+          <ul class="sitemenu">
+           <li><a href="#headerSection">Home</a></li>
+           <li><a href="#about">About Nike</a></li>
+           <li><a href="#products">Products</a></li>
+           <li><a href="#cart">Cart</a></li>
+          </ul>
+      </nav>
+    </footer>
 
     <!-- This is where we add our awesome JavaScript code -->
     <script src="./script.js"></script>

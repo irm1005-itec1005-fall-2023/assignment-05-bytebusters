@@ -31,7 +31,7 @@ body {
   background-color: var(--body-background-colour);
 }
 
-main {
+/*main {
   min-height: 100vh;
 
   display: flex;
