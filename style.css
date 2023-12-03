@@ -53,3 +53,50 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  border-bottom: 2px solid #fff; /* Add a white border at the bottom of headers and footers */
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+  justify-content: space-between;
+}
+
+article {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Add a border around text elements within articles */
+article h2, article p {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  border-top: 2px solid #fff; /* Add a white border at the top of the footer */
+}
