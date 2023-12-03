@@ -86,7 +86,6 @@ article {
   border-radius: 5px;
 }
 
-/* Add a border around text elements within articles */
 article h2, article p {
   border: 1px solid #ccc;
   padding: 10px;
