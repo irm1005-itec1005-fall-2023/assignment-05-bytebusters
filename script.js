@@ -1,95 +1,75 @@
-//
-//  JS File
-//  YOU CAN REMOVE ALL OF THIS CODE AND START FRESH
-//
-let todoArray = [];
-let todoForm = document.getElementById("Products");
-todoForm.addEventListener("click", handleSubmitForm);
+document.addEventListener('DOMContentLoaded', function () {
+  const productList = document.getElementById('Products');
+  const cartItems = document.getElementById('shoppingCart');
+  const cartTotal = document.getElementById('cart-total');
 
-function handleSubmitForm(event) {
+  productList.addEventListener('click', function (e) {
+      if (e.target.classList.contains('addProduct')) {
+          const product = e.target.parentElement;
+          addToCart(product);
+      }
+  });
 
-  event.preventDefault();
+  cartItems.addEventListener('click', function (e) {
+      if (e.target.classList.contains('removeProduct')) {
+          const cartItem = e.target.closest('li');
+          removeFromCart(cartItem);
+      }
+  });
 
-  todoArray.push(todoInput.value);
-  
-  todoForm.reset();
+  function addToCart(product) {
+      const productId = product.querySelector('.addProduct').dataset.id;
+      const productName = product.querySelector('p').textContent;
+      const productPrice = parseFloat(product.querySelector('.addProduct').dataset.price);
 
-  renderData();
-}
-//
-// Variables
-//
+      const existingCartItem = document.querySelector(`#shoppingCart [data-id="${productId}"]`);
 
-// Constants
-const appID = "app";
-const headingText = "Develop. Preview. Ship.";
-const headingTextIcon = "🚀";
-const projectDueDate = "8 December 2023 11:59";
+      if (existingCartItem) {
+          // If item already exists in the cart, update quantity and total
+          const quantityElement = existingCartItem.querySelector('.quantity');
+          const quantity = parseInt(quantityElement.textContent) + 1;
+          quantityElement.textContent = quantity;
+      } else {
+          // If item doesn't exist in the cart, add a new item
+          const cartItem = document.createElement('li');
+          cartItem.dataset.id = productId;
+          cartItem.innerHTML = `
+              <span>${productName}</span>
+              <span class="quantity">1</span>
+              <span class="price">$${productPrice.toFixed(2)}</span>
+              <button class="removeProduct">Remove</button>
+          `;
+          cartItems.appendChild(cartItem);
+      }
 
-// Variables
-let countdownDate = new Date(projectDueDate);
-
-// DOM Elements
-let appContainer = document.getElementById(appID);
-
-//
-// Functions
-//
-
-function calculateDaysLeft(countdownDate) {
-  const now = new Date().getTime();
-  const countdown = new Date(countdownDate).getTime();
-
-  console.log(countdown);
-
-  const difference = (countdown - now) / 1000;
-
-
-  // Countdown passed already
-  if (difference < 1) {
-    return null;
+      updateCartTotal();
   }
 
+  function removeFromCart(cartItem) {
+      const quantityElement = cartItem.querySelector('.quantity');
+      const quantity = parseInt(quantityElement.textContent);
 
-  const days = Math.floor(difference / (60 * 60 * 24));
+      if (quantity > 1) {
+          // If there are multiple items, decrease quantity
+          quantityElement.textContent = quantity - 1;
+      } else {
+          // If there's only one item, remove the entire cart item
+          cartItem.remove();
+      }
 
-  return days;
-}
-
-// Add a heading to the app container
-function inititialise() {
-  // If anything is wrong with the app container then end
-  if (!appContainer) {
-    console.error("Error: Could not find app contianer");
-    return;
+      updateCartTotal();
   }
 
-  // Create an h1 and add it to our app
-  const h1 = document.createElement("h1");
-  const daysLeft = calculateDaysLeft(countdownDate);
-  let headingTextCalculated = headingText;
+  function updateCartTotal() {
+      const cartItemElements = document.querySelectorAll('.shoppingCart li');
+      let total = 0;
 
-  if (daysLeft > 1) {
-    headingTextCalculated = headingTextCalculated.concat(
-      " In ",
-      daysLeft.toString(),
-      " days "
-    );
-  }else if (daysLeft === 1) {
-    headingTextCalculated = headingTextCalculated.concat(
-      " Tomorrow"
-    );
+      cartItemElements.forEach(function (cartItem) {
+          const quantity = parseInt(cartItem.querySelector('.quantity').textContent);
+          const price = parseFloat(cartItem.querySelector('.price').textContent.slice(1));
+          total += quantity * price;
+      });
+
+      cartTotal.textContent = total.toFixed(2);
   }
-
-  h1.textContent = headingTextCalculated.concat(headingTextIcon);
-  appContainer.appendChild(h1);
-
-  // Init complete
-  console.log("App successfully initialised");
-}
-
-//
-// Inits & Event Listeners
-//
-
-inititialise();
+});
