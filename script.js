@@ -2,7 +2,20 @@
 //  JS File
 //  YOU CAN REMOVE ALL OF THIS CODE AND START FRESH
 //
+let todoArray = [];
+let todoForm = document.getElementById("form-todo");
+todoForm.addEventListener("submit", handleSubmitForm);
 
+function handleSubmitForm(event) {
+
+  event.preventDefault();
+
+  todoArray.push(todoInput.value);
+  
+  todoForm.reset();
+
+  renderData();
+}
 //
 // Variables
 //
