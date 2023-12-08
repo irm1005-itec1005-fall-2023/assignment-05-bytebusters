@@ -3,8 +3,8 @@
 //  YOU CAN REMOVE ALL OF THIS CODE AND START FRESH
 //
 let todoArray = [];
-let todoForm = document.getElementById("form-todo");
-todoForm.addEventListener("submit", handleSubmitForm);
+let todoForm = document.getElementById("Products");
+todoForm.addEventListener("click", handleSubmitForm);
 
 function handleSubmitForm(event) {
 
